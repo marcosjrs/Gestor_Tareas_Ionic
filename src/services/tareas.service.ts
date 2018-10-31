@@ -6,16 +6,15 @@ export class TareasService {
     listas:Lista[];
 
     constructor() {
-        this.pruebas();
     }
 
-    pruebas(){
-        this.listas = [];
-        this.listas.push(
-            new Lista("Cursos pendientes por ver"),
-            new Lista("Librerías a repasar")
-        );
-        console.log(this.listas)
+    addLista(lista:Lista){
+        if(!this.listas) this.listas = [];
+        this.listas.push(lista);
+    }
+
+    removeLista(lista:Lista){
+        this.listas = this.listas.filter( l => lista.id != l.id );
     }
 
 }

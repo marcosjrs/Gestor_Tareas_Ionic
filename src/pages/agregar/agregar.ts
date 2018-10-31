@@ -14,6 +14,7 @@ export class AgregarPage {
 
   constructor(private tareasSvc: TareasService, private navParams: NavParams) {   
     this.lista = new Lista( this.navParams.get('titulo') );
+    this.tareasSvc.addLista(this.lista);
   }
 
   guardarNuevaTarea(){
