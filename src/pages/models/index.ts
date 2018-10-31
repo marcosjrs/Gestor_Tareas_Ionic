@@ -1,0 +1,3 @@
+//Servirá para exportar todos los modelos contenidos en esta carpeta....
+export {Lista} from './lista.model';
+export {Tarea} from './tarea.model';
