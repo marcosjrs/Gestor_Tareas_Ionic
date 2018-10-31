@@ -14,6 +14,7 @@ export class AgregarPage {
 
   constructor(private tareasSvc: TareasService, private navParams: NavParams) {   
     let lista = this.navParams.get("lista");
+    console.log(lista);
     if(lista){
       this.lista = this.navParams.get("lista")
     }else{

@@ -6,12 +6,21 @@
   
   <ion-content>
     <ion-list>
-        <button ion-item *ngFor="let lista of tareasSvc.listas" (click)="abrirLista(lista)">
-          {{ lista.titulo }}
-          <ion-note item-end>
-            <ion-badge item-end> {{lista.tareas.length}}</ion-badge>           
-          </ion-note>
-        </button>  
+
+        <ion-item-sliding *ngFor="let lista of tareasSvc.listas">
+          <ion-item-options side="right">
+            <button ion-button color="danger" only-icon  (click)="eliminarLista(lista)">
+              <ion-icon name="close"></ion-icon>
+            </button>
+          </ion-item-options>
+          <button ion-item (click)="abrirLista(lista)">
+            {{ lista.titulo }}
+            <ion-note item-end>
+              <ion-badge item-end> {{lista.tareas.length}}</ion-badge>           
+            </ion-note>
+          </button>  
+        </ion-item-sliding>
+        
     </ion-list>
 
     <ion-fab bottom right>
