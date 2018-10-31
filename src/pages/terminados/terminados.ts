@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TareasService } from '../../services/tareas.service';
 
 @Component({
     selector: 'page-terminados',

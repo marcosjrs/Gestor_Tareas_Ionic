@@ -11,7 +11,10 @@ import { Lista } from '../../models';
 export class CompletadasPipe implements PipeTransform {
 
   transform(listas: Lista[], completada:boolean) {
-    let ret = listas.filter( l => completada?(l.finalizacion || l.tareas.length==0):(!l.finalizacion && l.tareas.length>0));
+    let ret =  [];
+    if(listas){
+      ret = listas.filter( l => completada?(l.finalizacion || l.tareas.length==0):(!l.finalizacion && l.tareas.length>0));
+    }      
     return ret;
   }
 }
