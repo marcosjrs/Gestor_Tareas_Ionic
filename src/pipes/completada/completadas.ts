@@ -6,6 +6,7 @@ import { Lista } from '../../models';
  */
 @Pipe({
   name: 'completadas',
+  pure: false
 })
 export class CompletadasPipe implements PipeTransform {
 
