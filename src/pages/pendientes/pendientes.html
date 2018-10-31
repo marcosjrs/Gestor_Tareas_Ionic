@@ -8,6 +8,9 @@
     <ion-list>
         <button ion-item *ngFor="let lista of tareasSvc.listas" (click)="abrirLista(lista)">
           {{ lista.titulo }}
+          <ion-note item-end>
+            <ion-badge item-end> {{lista.tareas.length}}</ion-badge>           
+          </ion-note>
         </button>  
     </ion-list>
 
