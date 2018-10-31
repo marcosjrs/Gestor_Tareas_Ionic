@@ -13,8 +13,13 @@ export class AgregarPage {
   descripcionNuevaTarea:string;
 
   constructor(private tareasSvc: TareasService, private navParams: NavParams) {   
-    this.lista = new Lista( this.navParams.get('titulo') );
-    this.tareasSvc.addLista(this.lista);
+    let lista = this.navParams.get("lista");
+    if(lista){
+      this.lista = this.navParams.get("lista")
+    }else{
+      this.lista =new Lista( this.navParams.get('titulo') );
+      this.tareasSvc.addLista(this.lista);
+    }
   }
 
   guardarNuevaTarea(){
@@ -25,6 +30,8 @@ export class AgregarPage {
 
   modificarCompletadoTarea(tarea:Tarea){
     tarea.completado = !tarea.completado;
+    let tareasNoCompletadas = this.lista.tareas.filter( l => !l.completado).length;
+    this.lista.finalizacion = (tareasNoCompletadas == 0) ? new Date() : undefined;
     this.updateListaEnServicio();
   }
 
@@ -34,7 +41,7 @@ export class AgregarPage {
   }
 
   updateListaEnServicio(){
-    this.tareasSvc.updateLista(this.lista);
+    this.tareasSvc.persistirListas(); //la lista de esta clase es una referencia a la contenida en el servicio, por eso funciona.
   }
 
 }

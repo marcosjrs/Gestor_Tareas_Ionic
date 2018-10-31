@@ -49,4 +49,8 @@ export class PendientesPage {
     mostrarPaginaAgregarTareasALista(nombreNuevaLista){
         this.navCtrl.push( AgregarPage, {titulo:nombreNuevaLista} ); //Muestra popup con componente AgregarPage
     }
+
+    abrirLista(lista){
+        this.navCtrl.push( AgregarPage, {titulo:lista.titulo, lista} ); //Muestra popup con componente AgregarPage
+    }
 }

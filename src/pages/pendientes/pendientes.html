@@ -6,7 +6,7 @@
   
   <ion-content>
     <ion-list>
-        <button ion-item *ngFor="let lista of tareasSvc.listas">
+        <button ion-item *ngFor="let lista of tareasSvc.listas" (click)="abrirLista(lista)">
           {{ lista.titulo }}
         </button>  
     </ion-list>
