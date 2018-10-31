@@ -7,7 +7,7 @@
   <ion-content>
     <ion-list>
 
-        <ion-item-sliding *ngFor="let lista of tareasSvc.listas">
+        <ion-item-sliding *ngFor="let lista of tareasSvc.listas | completadas:false">
           <ion-item-options side="right">
             <button ion-button color="danger" only-icon  (click)="eliminarLista(lista)">
               <ion-icon name="close"></ion-icon>
