@@ -21,8 +21,12 @@ export class AgregarPage {
     this.descripcionNuevaTarea = "";
   }
 
-  modificarCompletado(tarea:Tarea){
+  modificarCompletadoTarea(tarea:Tarea){
     tarea.completado = !tarea.completado;
+  }
+
+  borrarTarea(indexTarea:number){
+    this.lista.tareas.splice(indexTarea,1);
   }
 
 }

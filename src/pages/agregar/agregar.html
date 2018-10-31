@@ -7,14 +7,13 @@
 
 <ion-content>
 
-  <ion-list no-lines>
+  <ion-list>
 
   <!-- Nueva tarea -->
     <ion-item-divider color="light"></ion-item-divider>
     
     <ion-item>
-      <ion-label fixed>Tarea:</ion-label>
-      <ion-input [(ngModel)]="descripcionNuevaTarea" (keyup.enter)="guardarNuevaTarea()" type="text"></ion-input>
+      <ion-input placeholder="Nueva Tarea" [(ngModel)]="descripcionNuevaTarea" (keyup.enter)="guardarNuevaTarea()" type="text"></ion-input>
     </ion-item>
 
     <ion-item-divider color="light"></ion-item-divider>
@@ -22,11 +21,22 @@
 
   <!-- lista de tareas de la lista -->
 
-    <ion-item *ngFor="let tarea of lista.tareas" class="animated fadeInDown" (click)="modificarCompletado(tarea)">
-      <ion-icon *ngIf="!tarea.completado" name="square-outline"></ion-icon>
-      <ion-icon *ngIf="tarea.completado" name="checkbox-outline"></ion-icon>
-      {{tarea.descripcion}}
-    </ion-item>
+
+    <ion-item-sliding *ngFor="let tarea of lista.tareas; let i = index" class="animated fadeInDown" >
+
+      <ion-item (click)="modificarCompletadoTarea(tarea)">
+        <ion-icon *ngIf="!tarea.completado" name="square-outline"></ion-icon>
+        <ion-icon *ngIf="tarea.completado" name="checkbox-outline"></ion-icon>
+        {{tarea.descripcion}}
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="borrarTarea(i)" icon-only>
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
 
   </ion-list>
 
