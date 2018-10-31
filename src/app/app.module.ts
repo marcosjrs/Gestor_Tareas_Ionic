@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PendientesPage } from '../pages/pendientes/pendientes';
 import { TerminadosPage } from '../pages/terminados/terminados';
+import { AgregarPage } from '../pages/agregar/agregar';
 import { TareasService } from '../services/tareas.service';
 
 @NgModule({
@@ -18,7 +19,8 @@ import { TareasService } from '../services/tareas.service';
     AboutPage,
     TabsPage,
     PendientesPage,
-    TerminadosPage
+    TerminadosPage,
+    AgregarPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { TareasService } from '../services/tareas.service';
     AboutPage,
     TabsPage,
     PendientesPage,
-    TerminadosPage
+    TerminadosPage,
+    AgregarPage
   ],
   providers: [
     StatusBar,
