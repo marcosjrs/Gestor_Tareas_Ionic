@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { TareasService } from '../../services/tareas.service';
 import { NavController, AlertController } from 'ionic-angular';
 import { AgregarPage } from '../agregar/agregar';
-import { Lista } from '../../models';
 
 @Component({
     selector: 'page-pendientes',
@@ -10,8 +8,7 @@ import { Lista } from '../../models';
 })
 
 export class PendientesPage {
-    constructor(private tareasSvc: TareasService,
-        private navCtrl: NavController,
+    constructor(private navCtrl: NavController,
         private alertCtrl: AlertController) { }
 
     irAgregarLista() {
@@ -51,11 +48,4 @@ export class PendientesPage {
         this.navCtrl.push( AgregarPage, {titulo:nombreNuevaLista} ); //Muestra popup con componente AgregarPage
     }
 
-    abrirLista(lista){
-        this.navCtrl.push( AgregarPage, {titulo:lista.titulo, lista} ); //Muestra popup con componente AgregarPage
-    }
-
-    eliminarLista(lista:Lista){
-        this.tareasSvc.removeLista(lista);
-    }
 }

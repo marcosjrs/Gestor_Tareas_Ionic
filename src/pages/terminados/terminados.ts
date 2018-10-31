@@ -7,5 +7,5 @@ import { TareasService } from '../../services/tareas.service';
 })
 
 export class TerminadosPage{
-    constructor(private tareasSvc:TareasService) { }
+    constructor() { }
 }

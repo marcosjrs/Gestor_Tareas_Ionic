@@ -13,6 +13,7 @@ import { TerminadosPage } from '../pages/terminados/terminados';
 import { AgregarPage } from '../pages/agregar/agregar';
 import { TareasService } from '../services/tareas.service';
 import { CompletadasPipe } from '../pipes/completada/completadas';
+import { ListasComponent } from '../components/listas/listas';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CompletadasPipe } from '../pipes/completada/completadas';
     PendientesPage,
     TerminadosPage,
     AgregarPage,
-    CompletadasPipe
+    CompletadasPipe,
+    ListasComponent
   ],
   imports: [
     BrowserModule,
