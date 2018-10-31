@@ -19,15 +19,22 @@ export class AgregarPage {
 
   guardarNuevaTarea(){
     this.lista.tareas.push( new Tarea(this.descripcionNuevaTarea, false) );
+    this.updateListaEnServicio();
     this.descripcionNuevaTarea = "";
   }
 
   modificarCompletadoTarea(tarea:Tarea){
     tarea.completado = !tarea.completado;
+    this.updateListaEnServicio();
   }
 
   borrarTarea(indexTarea:number){
     this.lista.tareas.splice(indexTarea,1);
+    this.updateListaEnServicio();
+  }
+
+  updateListaEnServicio(){
+    this.tareasSvc.updateLista(this.lista);
   }
 
 }
