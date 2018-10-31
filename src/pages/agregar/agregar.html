@@ -25,8 +25,8 @@
     <ion-item-sliding *ngFor="let tarea of lista.tareas; let i = index" class="animated fadeInDown" >
 
       <ion-item (click)="modificarCompletadoTarea(tarea)">
-        <ion-icon *ngIf="!tarea.completado" name="square-outline"></ion-icon>
-        <ion-icon *ngIf="tarea.completado" name="checkbox-outline"></ion-icon>
+        <ion-icon *ngIf="!tarea.completado" name="md-square-outline"></ion-icon>
+        <ion-icon *ngIf="tarea.completado" name="md-checkbox-outline"></ion-icon>
         {{tarea.descripcion}}
       </ion-item>
 
