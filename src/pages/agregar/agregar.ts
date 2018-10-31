@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TareasService } from '../../services/tareas.service';
+import { NavParams } from 'ionic-angular';
 
 
 @Component({
@@ -7,11 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AgregarPage {
 
-  constructor() {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AgregarPage');
+  constructor(private tareasSvc: TareasService, private navParams: NavParams) {    
+    console.log( this.navParams.get('titulo'));
   }
 
 }
