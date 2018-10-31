@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { AgregarPage } from '../../pages/agregar/agregar';
 import { Lista } from '../../models';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { TareasService } from '../../services/tareas.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class ListasComponent {
 
   text: string;
 
-  constructor(private navCtrl:NavController, private tareasSvc:TareasService) {
+  constructor(private navCtrl:NavController, private tareasSvc:TareasService, private alertCtrl:AlertController) {
   }
 
   abrirLista(lista) {
@@ -24,4 +24,38 @@ export class ListasComponent {
     this.tareasSvc.removeLista(lista);
   }
 
+  cambiarTituloLista(lista:Lista, titulo:string){
+    lista.titulo = titulo;
+    this.tareasSvc.updateLista(lista);
+  }
+
+  abrirPromptCambiarTitulo(lista:Lista) {
+      const prompt = this.alertCtrl.create({
+        title: 'Cambiar nombre de la lista',
+        message: "Introduce el nuevo nombre de la lista",
+        inputs: [
+          {
+            name: 'nuevoTitulo',
+            placeholder: lista.titulo
+          },
+        ],
+        buttons: [
+          {
+            text: 'Cancel',
+            handler: data => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'Save',
+            handler: data => {
+              if(data.nuevoTitulo.length>0){
+                this.cambiarTituloLista(lista, data.nuevoTitulo);
+              }
+            }
+          }
+        ]
+      });
+      prompt.present();
+    }
 }

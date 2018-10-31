@@ -1,5 +1,10 @@
 <ion-list>
   <ion-item-sliding *ngFor="let lista of tareasSvc.listas | completadas:soloCompletadas">
+    <ion-item-options side="left">
+      <button ion-button color="primary" only-icon (click)="abrirPromptCambiarTitulo(lista)">
+        <ion-icon name="ios-create-outline"></ion-icon>
+      </button>
+    </ion-item-options>
     <ion-item-options side="right">
       <button ion-button color="danger" only-icon (click)="eliminarLista(lista)">
         <ion-icon name="close"></ion-icon>
