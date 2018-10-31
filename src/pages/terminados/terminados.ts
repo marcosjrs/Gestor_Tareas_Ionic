@@ -3,9 +3,9 @@ import { TareasService } from '../../services/tareas.service';
 
 @Component({
     selector: 'page-terminados',
-    templateUrl: 'terminados.component.html'
+    templateUrl: 'terminados.html'
 })
 
-export class TerminadosComponent{
+export class TerminadosPage{
     constructor(private tareasSvc:TareasService) { }
 }
