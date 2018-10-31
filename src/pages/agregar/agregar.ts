@@ -21,4 +21,8 @@ export class AgregarPage {
     this.descripcionNuevaTarea = "";
   }
 
+  modificarCompletado(tarea:Tarea){
+    tarea.completado = !tarea.completado;
+  }
+
 }

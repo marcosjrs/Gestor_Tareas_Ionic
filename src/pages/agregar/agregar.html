@@ -13,7 +13,7 @@
     <ion-item-divider color="light"></ion-item-divider>
     
     <ion-item>
-      <ion-label floating>Nombre Tarea</ion-label>
+      <ion-label fixed>Tarea:</ion-label>
       <ion-input [(ngModel)]="descripcionNuevaTarea" (keyup.enter)="guardarNuevaTarea()" type="text"></ion-input>
     </ion-item>
 
@@ -22,8 +22,9 @@
 
   <!-- lista de tareas de la lista -->
 
-    <ion-item *ngFor="let tarea of lista.tareas">
-      <ion-icon name="square-outline"></ion-icon>
+    <ion-item *ngFor="let tarea of lista.tareas" class="animated fadeInDown" (click)="modificarCompletado(tarea)">
+      <ion-icon *ngIf="!tarea.completado" name="square-outline"></ion-icon>
+      <ion-icon *ngIf="tarea.completado" name="checkbox-outline"></ion-icon>
       {{tarea.descripcion}}
     </ion-item>
 
