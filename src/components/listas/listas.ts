@@ -29,7 +29,7 @@ export class ListasComponent {
     this.tareasSvc.updateLista(lista);
   }
 
-  abrirPromptCambiarTitulo(lista:Lista) {
+  abrirPromptCambiarTitulo(lista:Lista, elementoDeslizante) {
       const prompt = this.alertCtrl.create({
         title: 'Cambiar nombre de la lista',
         message: "Introduce el nuevo nombre de la lista",
@@ -43,13 +43,14 @@ export class ListasComponent {
           {
             text: 'Cancel',
             handler: data => {
-              console.log('Cancel clicked');
+              elementoDeslizante.close();
             }
           },
           {
             text: 'Save',
             handler: data => {
               if(data.nuevoTitulo.length>0){
+                elementoDeslizante.close();
                 this.cambiarTituloLista(lista, data.nuevoTitulo);
               }
             }

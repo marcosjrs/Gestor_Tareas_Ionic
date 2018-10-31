@@ -1,7 +1,7 @@
 <ion-list>
-  <ion-item-sliding *ngFor="let lista of tareasSvc.listas | completadas:soloCompletadas">
+  <ion-item-sliding #elementoDeslizante *ngFor="let lista of tareasSvc.listas | completadas:soloCompletadas">
     <ion-item-options side="left">
-      <button ion-button color="primary" only-icon (click)="abrirPromptCambiarTitulo(lista)">
+      <button ion-button color="primary" only-icon (click)="abrirPromptCambiarTitulo(lista ,elementoDeslizante)">
         <ion-icon name="ios-create-outline"></ion-icon>
       </button>
     </ion-item-options>
